@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState, useEffect, useReducer } from 'react';
 import styled from 'styled-components';
-import Home from './components/Home.jsx';
 import axios from 'axios';
 import { API_KEY } from './../config.js';
+import Home from './components/Home.jsx';
+import Cameras from './components/Cameras.jsx';
 
 const URL = `https://az511.com/api/v2/get/`;
 
@@ -97,7 +98,7 @@ const App = () => {
       </NavBar>
       {view === 'Home' ? <Home feed={feed}/> : null}
       {view === 'Maps' ? 'poop2' : null}
-      {view === 'Cameras' ? 'poop3' : null}
+      {view === 'Cameras' ? <Cameras cameras={cameras}/> : null}
       {view === 'Emergency' ? 'poop4' : null}
     </AppContainer>
   )

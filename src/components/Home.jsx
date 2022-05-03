@@ -29,9 +29,9 @@ const FeedContainer = styled.div`
 
 const Home = ({feed}) => {
   const partialFeed = feed.slice(0, 50);
-  var date = new Date(1649678400 * 1000);
-  console.log(date.toGMTString());
-  console.log(partialFeed)
+  // var date = new Date(1649678400 * 1000);
+  // console.log(date.toGMTString());
+  // console.log(partialFeed)
 
   return (
     <HomeContainer>
