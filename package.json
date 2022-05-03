@@ -24,10 +24,11 @@
   "dependencies": {
     "@googlemaps/react-wrapper": "^1.1.32",
     "axios": "^0.27.2",
-    "dotenv": "^16.0.0",
+    "cors": "^2.8.5",
     "express": "^4.18.1",
     "mongoose": "^6.3.2",
     "nodemon": "^2.0.16",
+    "path": "^0.12.7",
     "react": "^18.1.0",
     "react-bootstrap": "^2.3.1",
     "react-dom": "^18.1.0",

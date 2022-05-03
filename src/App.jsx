@@ -1,6 +1,17 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 import styled from 'styled-components';
+import Home from './components/Home.jsx';
+import axios from 'axios';
+import { API_KEY } from './../config.js';
+
+const URL = `https://az511.com/api/v2/get/`;
+
+const config = {
+  headers: {
+    "content-type": "application/json"
+  }
+};
 
 const AppContainer = styled.div`
   display: flex;
@@ -12,11 +23,10 @@ const NavBar = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: #2e2e2e;
+  background-color: rgba(0,0,0,.2);
   height: 55px;
   margin: 0;
   padding: 0;
-
 `;
 
 const Logo = styled.div`
@@ -30,14 +40,13 @@ const Logo = styled.div`
 const NavBarButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
-  background-color: #2e2e2e;
+  background-color: inherit;
   height: 55px;
   margin: 0;
   padding: 0;
 `;
 
 const NavButton = styled.div`
-  align-self: flex-end;
   height: auto;
   width: auto;
   padding: 0px 20px;
@@ -50,31 +59,46 @@ const NavButton = styled.div`
   }
 `;
 
-const WelcomeContainer = styled.div`
-  display: flex;
-  height: 500px;
-  width: 500px;
-  border-radius: 10px;
-  margin: 20px auto;
-  background-color: #2e2e2e;
-`;
-
-
 const App = () => {
+  const [view, setView] = useState('Home');
+  const [feed, setFeed] = useState([]);
+  const [cameras, setCameras] = useState([]);
+  const [emergency, setEmergency] = useState([]);
+  const [messageBoards, setMessageBoards] = useState([]);
+
+  useEffect(() => {
+    axios.get(URL + `messagesigns?key=${API_KEY}`, config)
+    .then((results) => setMessageBoards(results.data))
+    .catch((err) => console.error(err));
+
+    axios.get(URL + `alerts?key=${API_KEY}`, config)
+    .then((results) => setEmergency(results.data))
+    .catch((err) => console.error(err));
+
+    axios.get(URL + `event?key=${API_KEY}`, config)
+    .then((results) => setFeed(results.data))
+    .catch((err) => console.error(err));
+
+    axios.get(URL + `cameras?key=${API_KEY}`, config)
+    .then((results) => setCameras(results.data))
+    .catch((err) => console.error(err));
+  }, []);
+
   return (
     <AppContainer>
       <NavBar>
-        <Logo>AZ Traffic and Contruction</Logo>
+        <Logo>AZ Traffic and Construction</Logo>
         <NavBarButtonsContainer>
-          <NavButton>Home</NavButton>
-          <NavButton>Maps</NavButton>
-          <NavButton>Cameras</NavButton>
-          <NavButton>Emergency</NavButton>
+          <NavButton onClick={() => setView('Home')} >Home</NavButton>
+          <NavButton onClick={() => setView('Maps')}>Maps</NavButton>
+          <NavButton onClick={() => setView('Cameras')}>Cameras</NavButton>
+          <NavButton onClick={() => setView('Emergency')}>Emergency</NavButton>
         </NavBarButtonsContainer>
       </NavBar>
-      <WelcomeContainer>
-        Welcome!
-      </WelcomeContainer>
+      {view === 'Home' ? <Home feed={feed}/> : null}
+      {view === 'Maps' ? 'poop2' : null}
+      {view === 'Cameras' ? 'poop3' : null}
+      {view === 'Emergency' ? 'poop4' : null}
     </AppContainer>
   )
 };

@@ -1,11 +1,11 @@
-require('dotenv').config();
+const PORT = require('./config.js');
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 5000;
+const port = PORT || 5000;
 
-app.json();
+app.json()
 
-app.use(express.static('public'));
+app.use(express.static('public'))
 
 app.get('/', (req, res) => {
   res.send('Hello')
