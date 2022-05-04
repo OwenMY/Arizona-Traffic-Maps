@@ -2,9 +2,10 @@ import React from 'react';
 import { useState, useEffect, useReducer } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import { API_KEY } from './../config.js';
+import { ADOT_API_KEY } from './../config.js';
 import Home from './components/Home.jsx';
 import Cameras from './components/Cameras.jsx';
+import TrafficMap from './components/Maps.jsx';
 
 const URL = `https://az511.com/api/v2/get/`;
 
@@ -68,19 +69,19 @@ const App = () => {
   const [messageBoards, setMessageBoards] = useState([]);
 
   useEffect(() => {
-    axios.get(URL + `messagesigns?key=${API_KEY}`, config)
+    axios.get(URL + `messagesigns?key=${ADOT_API_KEY}`, config)
     .then((results) => setMessageBoards(results.data))
     .catch((err) => console.error(err));
 
-    axios.get(URL + `alerts?key=${API_KEY}`, config)
+    axios.get(URL + `alerts?key=${ADOT_API_KEY}`, config)
     .then((results) => setEmergency(results.data))
     .catch((err) => console.error(err));
 
-    axios.get(URL + `event?key=${API_KEY}`, config)
+    axios.get(URL + `event?key=${ADOT_API_KEY}`, config)
     .then((results) => setFeed(results.data))
     .catch((err) => console.error(err));
 
-    axios.get(URL + `cameras?key=${API_KEY}`, config)
+    axios.get(URL + `cameras?key=${ADOT_API_KEY}`, config)
     .then((results) => setCameras(results.data))
     .catch((err) => console.error(err));
   }, []);
@@ -97,7 +98,7 @@ const App = () => {
         </NavBarButtonsContainer>
       </NavBar>
       {view === 'Home' ? <Home feed={feed}/> : null}
-      {view === 'Maps' ? 'poop2' : null}
+      {view === 'Maps' ? <TrafficMap feed={feed} /> : null}
       {view === 'Cameras' ? <Cameras cameras={cameras}/> : null}
       {view === 'Emergency' ? 'poop4' : null}
     </AppContainer>
