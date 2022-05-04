@@ -1,8 +1,9 @@
 import React from 'react';
-import { GoogleMap, useLoadScript, Marker, Circle } from '@react-google-maps/api';
+import { GoogleMap, useLoadScript, Marker, Circle, InfoBox, InfoWindow } from '@react-google-maps/api';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { GOOGLE_API_KEY } from './../../config.js';
 import styled from 'styled-components';
+import MapMarker from './MapMarker.jsx';
 
 const containerStyle = {
   width: '97vw',
@@ -25,6 +26,8 @@ export default function TrafficMap({feed}) {
 
 const Map = ({feed}) => {
   console.log(feed)
+  const [showBox, setShowBox] = useState(false);
+
   const partialFeed = feed.slice(0, 50);
 
   const icon = {
@@ -43,7 +46,8 @@ const Map = ({feed}) => {
       center={{ lat: 33.44019493553106, lng: -112.07062962364152 }}
       options={options}
     >
-      {partialFeed.map((event) => <Marker key={event.ID} onClick={() => console.log('poop')} position={{ lat:event.Latitude, lng:event.Longitude }} icon={icon} text={event.Details}/>)}
+      {partialFeed.map((event) => <MapMarker key={event.ID} event={event} icon={icon}/>)}
+
     </GoogleMap>
   );
 };

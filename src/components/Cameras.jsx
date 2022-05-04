@@ -1,12 +1,12 @@
 import React from 'react';
 import { useState, useEffect, useReducer } from 'react';
 import styled from 'styled-components';
-import CamEntry from './CamEntry.jsx'
+import CamEntry from './CamEntry.jsx';
 
 const CamerasPageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 100vh;
   max-width: 1200px;
   border-radius: 5px;
   margin: 20px auto;
@@ -15,6 +15,7 @@ const CamerasPageContainer = styled.div`
 
 const CamerasHeader = styled.div`
   color: white;
+  font-family: 'Lato', sans serif;
 `;
 
 const CamerasFeed = styled.div`
@@ -28,15 +29,12 @@ const CamerasFeed = styled.div`
   }
 `;
 
-
-
 const Cameras = ({cameras}) => {
   let partialCameras = cameras.slice(0, 27);
 
   return (
     <CamerasPageContainer>
       <h2>Cameras</h2>
-      <span>Do I want to drive today?</span>
       <CamerasFeed>
         {cameras.length ? partialCameras.map((cam) => <CamEntry cam={cam} key={cam.Id} />) : null }
       </CamerasFeed>

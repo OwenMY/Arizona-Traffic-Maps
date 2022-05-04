@@ -1,3 +1,10 @@
+html {
+  margin: 0;
+}
+body {
+  margin: 0;
+}
+
 .app {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./images/ArizonaDesert.jpeg');
   background-repeat: no-repeat;
@@ -6,4 +13,8 @@
   height: 100vh;
   width: 100vw;
   border: none;
+}
+
+.homepage-img {
+  background: url('./images/ArizonaDesert.jpeg')
 }

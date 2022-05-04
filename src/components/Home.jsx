@@ -1,44 +1,44 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import styled from 'styled-components';
-import FeedEntry from './FeedEntry.jsx'
+import FeedEntry from './FeedEntry.jsx';
+import img from './../../public/icons/PaperMap.png';
 
 const HomeContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  height: 500px;
+  flex-direction: row;
+  height: 90vh;
   width: 1000px;
   border-radius: 10px;
   margin: 20px auto;
-  background-color: rgba(0,0,0,.2);
+  background-color: rgba(0,0,0,0);
 `;
 
-const FeedHeader = styled.div`
+const HomeHeaderContainer = styled.div`
   color: white;
+  font-family: 'Lato', sans serif;
+  margin: auto 0;
 `;
 
-const FeedContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  gap: 5px;
-  ::-webkit-scrollbar {
-    display: none;
-  }
+const HomeHeader = styled.div`
+  font-size: 37px;
+`;
+
+const FeedImage = styled.img`
+  height: 300px;
+  width: auto;
+  margin: auto;
+  opacity: .8;
 `;
 
 const Home = ({feed}) => {
-  const partialFeed = feed.slice(0, 50);
-  console.log(partialFeed)
-
   return (
     <HomeContainer>
-      <FeedHeader>
-        <h2>Traffic Events</h2>
-      </FeedHeader>
-      <FeedContainer>{
-        partialFeed.length ? partialFeed.map((event) => <FeedEntry event={event} key={event.ID}/>) : null
-      }</FeedContainer>
+      <HomeHeaderContainer>
+        <HomeHeader>Arizona Traffic Maps</HomeHeader>
+        <span>A better way to navigate Phoenix</span>
+      </HomeHeaderContainer>
+        <FeedImage src={img}/>
     </HomeContainer>
   )
 }

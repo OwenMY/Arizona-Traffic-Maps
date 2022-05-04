@@ -6,6 +6,7 @@ import { ADOT_API_KEY } from './../config.js';
 import Home from './components/Home.jsx';
 import Cameras from './components/Cameras.jsx';
 import TrafficMap from './components/Maps.jsx';
+import Emergency from './components/Emergency.jsx';
 
 const URL = `https://az511.com/api/v2/get/`;
 
@@ -22,6 +23,7 @@ const AppContainer = styled.div`
 `;
 
 const NavBar = styled.div`
+  font-family: sans serif;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -31,8 +33,20 @@ const NavBar = styled.div`
   padding: 0;
 `;
 
+const LogoContainer = styled.div`
+  display: flex;
+`;
+
+const CactusIcon = styled.div`
+  // background-image: url(${img});
+  height: 50px;
+  width: auto;
+  padding-left: 10px;
+  alt: 'poop';
+`;
+
 const Logo = styled.div`
-  font-family: 'Tapestry', cursive;
+  font-family: sans serif;
   height: auto;
   width: auto;
   align-self: center;
@@ -49,17 +63,20 @@ const NavBarButtonsContainer = styled.div`
 `;
 
 const NavButton = styled.div`
+  font-weight: bold;
+  font-size: larger;
   height: auto;
   width: auto;
   padding: 0px 20px;
   text-align: center;
   line-height: 50px;
-  // border: 1px solid white;
   cursor: pointer;
   &:hover {
-    background-color: darkgrey;
+    font-size: x-large;
   }
 `;
+
+
 
 const App = () => {
   const [view, setView] = useState('Home');
@@ -89,7 +106,10 @@ const App = () => {
   return (
     <AppContainer>
       <NavBar>
-        <Logo>AZ Traffic and Construction</Logo>
+        <LogoContainer>
+          <CactusIcon />
+          <Logo>AZTM</Logo>
+        </LogoContainer>
         <NavBarButtonsContainer>
           <NavButton onClick={() => setView('Home')} >Home</NavButton>
           <NavButton onClick={() => setView('Maps')}>Maps</NavButton>
@@ -100,7 +120,7 @@ const App = () => {
       {view === 'Home' ? <Home feed={feed}/> : null}
       {view === 'Maps' ? <TrafficMap feed={feed} /> : null}
       {view === 'Cameras' ? <Cameras cameras={cameras}/> : null}
-      {view === 'Emergency' ? 'poop4' : null}
+      {view === 'Emergency' ? <Emergency /> : null}
     </AppContainer>
   )
 };
