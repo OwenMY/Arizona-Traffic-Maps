@@ -25,7 +25,6 @@ export default function TrafficMap({feed}) {
 };
 
 const Map = ({feed}) => {
-  console.log(feed)
   const [showBox, setShowBox] = useState(false);
 
   const partialFeed = feed.slice(0, 50);

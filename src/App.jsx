@@ -76,8 +76,6 @@ const NavButton = styled.div`
   }
 `;
 
-
-
 const App = () => {
   const [view, setView] = useState('Home');
   const [feed, setFeed] = useState([]);
@@ -102,6 +100,8 @@ const App = () => {
     .then((results) => setCameras(results.data))
     .catch((err) => console.error(err));
   }, []);
+
+  console.log(cameras)
 
   return (
     <AppContainer>
