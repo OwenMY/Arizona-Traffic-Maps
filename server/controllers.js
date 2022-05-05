@@ -10,18 +10,24 @@ const config = {
 };
 
 const getCameras = (req, res) => {
-  //
+  Cameras.find({})
+  .catch((err) => {
+    console.error(err);
+    res.status(500).send('Internal Error');
+  })
+  .then((result) => res.send(result));
 };
 
 const postCameras = (req, res) => {
   axios.get(URL + `cameras?key=${ADOT_API_KEY}`, config)
   .then((results) => {
-    Cameras.insertMany(results, (err, docs) => {
+    console.log(Array.isArray(results.data));
+    Cameras.insertMany(results.data, (err, docs) => {
       if (err) {
         console.error(err);
         res.send(err);
       } else {
-        res.send(results);
+        res.send(docs);
       }
     })
   })
