@@ -96,7 +96,7 @@ const App = () => {
     .then((results) => setFeed(results.data))
     .catch((err) => console.error(err));
 
-    axios.get(URL + `cameras?key=${ADOT_API_KEY}`, config)
+    axios.get('/cameras')
     .then((results) => setCameras(results.data))
     .catch((err) => console.error(err));
   }, []);

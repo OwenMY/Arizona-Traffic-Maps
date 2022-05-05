@@ -1,4 +1,4 @@
-const { Cameras } = require('./model.js');
+const { Cameras, Events } = require('./model.js');
 const axios = require('axios');
 const URL = `https://az511.com/api/v2/get/`;
 const { ADOT_API_KEY } = require('./../config.js');
@@ -21,7 +21,6 @@ const getCameras = (req, res) => {
 const postCameras = (req, res) => {
   axios.get(URL + `cameras?key=${ADOT_API_KEY}`, config)
   .then((results) => {
-    console.log(Array.isArray(results.data));
     Cameras.insertMany(results.data, (err, docs) => {
       if (err) {
         console.error(err);
@@ -37,7 +36,17 @@ const postCameras = (req, res) => {
   });
 };
 
+const getEvents = () => {
+  //Todo
+};
+
+const postEvents = () => {
+  //Todo
+};
+
 module.exports = {
   postCameras,
-  getCameras
+  getCameras,
+  getEvents,
+  postEvents
 };

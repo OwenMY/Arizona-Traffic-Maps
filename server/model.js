@@ -21,8 +21,25 @@ const camerasSchema = new mongoose.Schema({
   Description: 'String'
 });
 
+const eventSchema = new mongoose.Schema({
+  Description: 'String',
+  DirectionOfTravel: 'String',
+  Id: 'String',
+  Latitude: 'Number',
+  Longitude: 'Number',
+  Name: 'String',
+  Organization: 'String',
+  RoadwayName: 'String',
+  Status: 'String',
+  Url: 'String',
+  __v: 'Number',
+  _id: 'String',
+});
+
 const Cameras = mongoose.model('cameras', camerasSchema);
+const Events = mongoose.model('events', eventSchema);
 
 module.exports = {
-  Cameras
+  Cameras,
+  Events
 };
