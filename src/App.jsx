@@ -101,8 +101,6 @@ const App = () => {
     .catch((err) => console.error(err));
   }, []);
 
-  console.log(cameras)
-
   return (
     <AppContainer>
       <NavBar>

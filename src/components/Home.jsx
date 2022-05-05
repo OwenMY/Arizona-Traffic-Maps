@@ -1,7 +1,6 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import styled from 'styled-components';
-import FeedEntry from './FeedEntry.jsx';
 import img from './../../public/icons/PaperMap.png';
 
 const HomeContainer = styled.div`

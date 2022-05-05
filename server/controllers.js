@@ -1,4 +1,4 @@
-const { Cameras, Events } = require('./model.js');
+const { Cameras, Events } = require('./db.js');
 const axios = require('axios');
 const URL = `https://az511.com/api/v2/get/`;
 const { ADOT_API_KEY } = require('./../config.js');

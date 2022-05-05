@@ -27,7 +27,7 @@ export default function TrafficMap({feed}) {
 const Map = ({feed}) => {
   const [showBox, setShowBox] = useState(false);
 
-  const partialFeed = feed.slice(0, 50);
+  const partialFeed = feed.slice(0, 200);
 
   const icon = {
     path: "M9 22C9 22 18 16 18 9C18 4.02944 13.9706 0 9 0C4.02944 0 0 4.02944 0 9C0 16 9 22 9 22ZM12 9C12 10.6569 10.6569 12 9 12C7.34315 12 6 10.6569 6 9C6 7.34315 7.34315 6 9 6C10.6569 6 12 7.34315 12 9Z",
