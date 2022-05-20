@@ -36,17 +36,7 @@ const postCameras = (req, res) => {
   });
 };
 
-const getEvents = () => {
-  //Todo
-};
-
-const postEvents = () => {
-  //Todo
-};
-
 module.exports = {
   postCameras,
-  getCameras,
-  getEvents,
-  postEvents
+  getCameras
 };

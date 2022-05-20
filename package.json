@@ -6,10 +6,7 @@
   "scripts": {
     "start": " nodemon ./server/index.js",
     "build": "webpack --watch --mode=production",
-    "dev": "webpack serve --open",
-    "lint": "eslint ./ --ignore-path .gitignore",
-    "lint:fix": "npm run lint -- --fix",
-    "format": "prettier --write \"{,!(node_modules)/**/}*.js\""
+    "dev": "webpack serve --open"
   },
   "repository": {
     "type": "git",
