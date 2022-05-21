@@ -16,7 +16,7 @@ To increase latency speeds, the mongodb database will be expanded to support all
 
 Plans for the emergency section include modal prompts that will display when new emergency data is available as well as a feed displaying previous emergency alerts.
 
-The google maps component will be refractored to load only points within the viewport. Information windows will include conditional icons depending on the event and camera icons will be added to the maps displaying that cameras feed upon click.
+The google maps component will be refractored to load points within the viewport only. Information windows will include conditional icons depending on the event and camera icons will be added to the maps displaying that cameras feed upon click.
 
 
 ## Getting Started
