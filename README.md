@@ -7,7 +7,9 @@ Arizona Traffic Maps (AZTM) is an app that allows you to view traffic cameras an
 
 AZTM's map is populated with orange drop pins that are placed in accordance with the latitude and longitude coordinates of traffic events that are fetched from the ADOT API. Upon clicking one of these drop pins appears an information window displaying the road event along with a snail icon.  Traffic Cameras can be viewed under the cameras tab with a grid layout of some of the traffic cameras you can view throughout the valley. In a future update, this page will be removed and camera data will be added to the map itself populated with camera icons.  
 
-![image](https://lh3.googleusercontent.com/kXlnLGIzOm8TuesDOyYgzxBpsDo_2IeFC5uEgsB1RrM-whzq9tsKtB4Qc5KLeZ9XN6t-bsDDaUKImvDfXMURNVwACJrYHDwC5uTkmNJ6LIyscNuazFkhwSUzWfAGRjVCJS-cIv8S9w=w2400)
+![image](https://lh3.googleusercontent.com/dGpPPGPNsH0PLOZ0HK3GjCxOBQueY1lY8O7FgZyRvJC3aiTpV-mKuTT7uc4MC2oNkHDshYWjxiEpYT9BKQq_HHMA0r4OjFsLkn8hmsIepX2z3mZJk82csFRn1rEDzjh7_sY4VQaXqA=w2400)
+
+![image](https://lh3.googleusercontent.com/u13JWK3EF4aPjr6-i0nDI-toDSg30lwJ1PP26kuFwegQT2LScDveBt0z_4dq0G3l33ar8bVlPzY08ZLg87LXAO2AuT8TA1nia-ovbbHfrvFMXDIDDfsU8TD3e1G9NI1R9KZaN_xtEQ=w2400)
 
  The emergency section is not yet implemented will be added in a future update.
 
